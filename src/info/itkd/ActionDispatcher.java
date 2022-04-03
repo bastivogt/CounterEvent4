@@ -37,7 +37,7 @@ public class ActionDispatcher {
         return false;
     }
 
-    public void broadcast(String type, Object src) {
+    public void dispatch(String type, Object src) {
         for (Listener listener : listeners) {
             if (listener.getType() == type) {
                 listener.getAction().update(type, src);
