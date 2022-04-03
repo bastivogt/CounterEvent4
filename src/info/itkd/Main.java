@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
 	    Counter counter = new Counter();
 
-        counter.addListener(Counter.COUNTER_START, new Action() {
+        counter.addListener(Counter.COUNTER_START, new IAction() {
             @Override
             public void update(String type, Object src) {
                 Counter c = (Counter) src;

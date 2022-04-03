@@ -1,6 +1,6 @@
 package info.itkd;
 
 @FunctionalInterface
-public interface Action {
+public interface IAction {
     void update(String type, Object src);
 }

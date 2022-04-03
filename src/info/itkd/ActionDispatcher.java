@@ -19,7 +19,7 @@ public class ActionDispatcher {
         return false;
     }
 
-    public Boolean addListener(String type, Action action) {
+    public Boolean addListener(String type, IAction action) {
         if (!hasListener(type)) {
             listeners.add(new Listener(type, action));
             return true;
@@ -37,7 +37,7 @@ public class ActionDispatcher {
         return false;
     }
 
-    public void dispatch(String type, Object src) {
+    public void dispatchAction(String type, Object src) {
         for (Listener listener : listeners) {
             if (listener.getType() == type) {
                 listener.getAction().update(type, src);

@@ -4,8 +4,8 @@ public class Listener {
 
 
     private String type;
-    private Action action;
-    public Listener(String type, Action action) {
+    private IAction action;
+    public Listener(String type, IAction action) {
         this.type = type;
         this.action = action;
     }
@@ -14,7 +14,7 @@ public class Listener {
         return type;
     }
 
-    public Action getAction() {
+    public IAction getAction() {
         return action;
     }
 }

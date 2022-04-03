@@ -44,11 +44,11 @@ public class Counter extends ActionDispatcher {
 
     public void run() {
         this.count = this.start;
-        this.dispatch(COUNTER_START, this);
+        this.dispatchAction(COUNTER_START, this);
         for(; this.count < this.finish; this.count += this.step) {
-            this.dispatch(COUNTER_CHANGE, this);
+            this.dispatchAction(COUNTER_CHANGE, this);
         }
-        this.dispatch(COUNTER_FINISH, this);
+        this.dispatchAction(COUNTER_FINISH, this);
     }
 
     public void reset(int start, int finish, int step) {
