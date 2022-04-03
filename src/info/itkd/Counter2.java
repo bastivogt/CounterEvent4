@@ -1,8 +1,9 @@
 package info.itkd;
 
-public class Counter extends ActionDispatcher {
+public class Counter2 implements IActionDispatcher {
 
     private int start, finish, step, count;
+    private ActionDispatcher actionDispatcher;
 
     public static final String COUNTER_START = "counterStart";
     public static final String COUNTER_CHANGE = "counterChange";
@@ -10,21 +11,43 @@ public class Counter extends ActionDispatcher {
 
 
 
-    public Counter(int start, int finish, int step) {
-        super();
+    public Counter2(int start, int finish, int step) {
+        actionDispatcher = new ActionDispatcher();
         this.reset(start, finish, step);
     }
 
-    public Counter(int start, int finish) {
+    public Counter2(int start, int finish) {
         this(start, finish, 1);
     }
 
-    public Counter(int start) {
+    public Counter2(int start) {
         this(start, 10, 1);
     }
 
-    public Counter() {
+    public Counter2() {
         this(0, 10, 1);
+    }
+
+
+
+    @Override
+    public Boolean hasListener(String type) {
+        return actionDispatcher.hasListener(type);
+    }
+
+    @Override
+    public Boolean addListener(String type, IAction action) {
+        return actionDispatcher.addListener(type, action);
+    }
+
+    @Override
+    public Boolean removeListener(String type) {
+        return actionDispatcher.removeListener(type);
+    }
+
+    @Override
+    public void dispatchAction(String type, Object src) {
+        actionDispatcher.dispatchAction(type, src);
     }
 
 
@@ -48,6 +71,5 @@ public class Counter extends ActionDispatcher {
         this.step = step;
         this.count = this.start;
     }
-
 
 }

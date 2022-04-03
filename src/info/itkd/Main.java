@@ -24,6 +24,31 @@ public class Main {
         counter.addListener(Counter.COUNTER_FINISH, Main::counterFinishAction);
 
         counter.run();
+
+
+        System.out.println("------------------------------------------------------------------");
+
+
+
+        // Counter2
+        Counter2 counter2 = new Counter2(10, 20, 1);
+
+        counter2.addListener(Counter2.COUNTER_START, (String type, Object src) -> {
+            Counter2 c = (Counter2) src;
+            System.out.println(Counter.COUNTER_START + ": " + c.getCount());
+        });
+
+        counter2.addListener(Counter2.COUNTER_CHANGE, (String type, Object src) -> {
+            Counter2 c = (Counter2) src;
+            System.out.println(Counter.COUNTER_CHANGE + ": " + c.getCount());
+        });
+
+        counter2.addListener(Counter2.COUNTER_FINISH, (String type, Object src) -> {
+            Counter2 c = (Counter2) src;
+            System.out.println(Counter.COUNTER_FINISH + ": " + c.getCount());
+        });
+
+        counter2.run();
     }
 
     public static void counterFinishAction(String type, Object src) {
